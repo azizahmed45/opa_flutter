@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:opa_flutter/widgets/bordered_item.dart';
 import 'package:opa_flutter/widgets/gradient.dart';
 import '';
@@ -11,7 +12,7 @@ class Login extends StatelessWidget {
     return Container(
       decoration: pageGradient,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.fromLTRB(40, 100, 40, 20),
+      padding: EdgeInsets.fromLTRB(40, 50, 40, 20),
       child: Column(
         children: <Widget>[
           Text(
@@ -67,13 +68,61 @@ class Login extends StatelessWidget {
           ),
           BorderedItem(
             child: FlatButton(
-              child: Text("Login", style: TextStyle(fontSize: 20, color: Colors.white),),
-              onPressed: ()=>{},
+              child: Text(
+                "Login",
+                style: TextStyle(fontSize: 25, color: Colors.white),
+              ),
+              onPressed: () => {},
             ),
           ),
-          SizedBox(height: 20,),
-          Text("OR", style: TextStyle(color: Colors.black, fontSize: 25),),
-          Text("login with", style: TextStyle(color: Colors.black, fontSize: 18),)
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "OR",
+            style: TextStyle(color: Colors.black, fontSize: 25),
+          ),
+          Text(
+            "login with",
+            style: TextStyle(color: Colors.black, fontSize: 18),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                color: Colors.white,
+                iconSize: 30,
+                icon: FaIcon(FontAwesomeIcons.google),
+                onPressed: () {},
+              ),
+              IconButton(
+                color: Colors.white,
+                iconSize: 30,
+                icon: FaIcon(FontAwesomeIcons.facebook),
+                onPressed: () {},
+              )
+            ],
+          ),
+          OutlineButton(
+            child: Text(
+              "Sign Up",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () {},
+          ),
+          SizedBox(height: 10,),
+          Text(
+            "لحضور المؤتمر",
+            style: TextStyle(
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10,),
+          Text(
+            "Term of Use",
+            style: TextStyle(
+                decoration: TextDecoration.underline,
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+          )
         ],
       ),
     );
