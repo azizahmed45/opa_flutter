@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:opa_flutter/splash.dart';
+import 'package:opa_flutter/pages/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,11 +12,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.white,
+        accentColor: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(body: Splash()),
+      home: Scaffold(
+          body: Login()
+          // Splash()
+      ),
     );
   }
 }
-
