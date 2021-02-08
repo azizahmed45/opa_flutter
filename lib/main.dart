@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:opa_flutter/pages/create_account.dart';
 import 'package:opa_flutter/pages/login.dart';
+import 'package:opa_flutter/pages/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,9 +19,13 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-          body: Login()
+          body:
+          CreateAccount()
+          // Login()
           // Splash()
       ),
     );
   }
 }
+
+// ahm_ijal@hotmail.com

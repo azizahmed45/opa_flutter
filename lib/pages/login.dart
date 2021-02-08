@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:opa_flutter/widgets/bordered_item.dart';
 import 'package:opa_flutter/widgets/gradient.dart';
-import '';
 
 class Login extends StatelessWidget {
   @override
@@ -14,6 +13,7 @@ class Login extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.fromLTRB(40, 50, 40, 20),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
             "OPA",
