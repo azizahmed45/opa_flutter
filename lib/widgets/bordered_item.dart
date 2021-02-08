@@ -17,10 +17,10 @@ class _BorderedItemState extends State<BorderedItem> {
     return Container(
       width: widget.width != null ? widget.width : double.infinity,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 2),
+          border: Border.all(color: Colors.black, width: 1),
           borderRadius: BorderRadius.circular(20)),
       child: widget.child,
-      padding: EdgeInsets.symmetric(vertical: 1, horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
     );
   }
 }

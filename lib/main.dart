@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opa_flutter/pages/create_account.dart';
 import 'package:opa_flutter/pages/login.dart';
+import 'package:opa_flutter/pages/sign_up.dart';
 import 'package:opa_flutter/pages/splash.dart';
 
 void main() {
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
           body:
-          CreateAccount()
+          SignUp()
+          // CreateAccount()
           // Login()
           // Splash()
       ),

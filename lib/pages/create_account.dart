@@ -101,8 +101,7 @@ class CreateAccount extends StatelessWidget {
                     "By signing up you are agree to the ",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 10),
                   ),
                   Text(
                     "Term of Use",
