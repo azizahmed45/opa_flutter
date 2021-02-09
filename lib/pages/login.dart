@@ -36,8 +36,9 @@ class Login extends StatelessWidget {
             height: 20,
           ),
           BorderedItem(
+            width: 300,
             child: TextFormField(
-              style: TextStyle(fontSize: 20, color: Colors.white),
+              style: TextStyle(fontSize: 18, color: Colors.white),
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.person,
@@ -51,9 +52,10 @@ class Login extends StatelessWidget {
             height: 15,
           ),
           BorderedItem(
+            width: 300,
             child: TextFormField(
               obscureText: true,
-              style: TextStyle(fontSize: 20, color: Colors.white),
+              style: TextStyle(fontSize: 18, color: Colors.white),
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.lock,
@@ -67,10 +69,11 @@ class Login extends StatelessWidget {
             height: 15,
           ),
           BorderedItem(
+            width: 300,
             child: FlatButton(
               child: Text(
                 "Login",
-                style: TextStyle(fontSize: 25, color: Colors.white),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
               onPressed: () => {},
             ),
@@ -112,7 +115,7 @@ class Login extends StatelessWidget {
           ),
           SizedBox(height: 10,),
           Text(
-            "لحضور المؤتمر",
+            "some arabic text",
             style: TextStyle(
                 color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
