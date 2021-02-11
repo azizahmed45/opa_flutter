@@ -36,11 +36,11 @@ class StorePage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: GridView.builder(gridDelegate: null, itemBuilder: null),
-          )
+          // Container(
+          //   height: MediaQuery.of(context).size.height,
+          //   width: MediaQuery.of(context).size.width,
+          //   child: GridView.builder(gridDelegate: null, itemBuilder: null),
+          // )
         ],
       ),
     );

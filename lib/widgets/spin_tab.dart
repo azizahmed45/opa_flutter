@@ -4,7 +4,15 @@ import 'package:opa_flutter/app_color.dart';
 import 'package:opa_flutter/widgets/get_spin.dart';
 import 'package:opa_flutter/widgets/get_vip.dart';
 
-class SpinTab extends StatelessWidget {
+class SpinTab extends StatefulWidget {
+  bool _showGetSpin = false;
+  bool _showGetVip = false;
+
+  @override
+  _SpinTabState createState() => _SpinTabState();
+}
+
+class _SpinTabState extends State<SpinTab> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -69,32 +77,44 @@ class SpinTab extends StatelessWidget {
                   children: <Widget>[
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: Image(
-                        width: 100,
-                        image: AssetImage(
-                            'assets/images/others/vpAcc.png'),
+                      child: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            widget._showGetVip = !widget._showGetVip;
+                          });
+                        },
+                        child: Image(
+                          width: 100,
+                          image: AssetImage(
+                              'assets/images/others/vpAcc.png'),
+                        ),
                       ),
                     ),
                     Align(
                         alignment: Alignment.centerRight,
-                        child: Container(
-                          width: 100,
-                          height: 35,
-                          child: Stack(
-                            children: <Widget>[
-                              Container(
-                                alignment: Alignment.center,
-                                width: 100,
-                                height: 35,
-                                margin: EdgeInsets.only(right: 10),
-                                decoration: BoxDecoration(color: AppColors.TEAL_LITE, borderRadius: BorderRadius.circular(8)),
-                                child: Text('Get Coins', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                              ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Image(image: AssetImage('assets/images/header/Plus.png'), width: 20, height: 20,),
-                              ),
-                            ],
+                        child: GestureDetector(
+                          onTap: (){ setState(() {
+                            widget._showGetSpin = !widget._showGetSpin;
+                          });},
+                          child: Container(
+                            width: 100,
+                            height: 35,
+                            child: Stack(
+                              children: <Widget>[
+                                Container(
+                                  alignment: Alignment.center,
+                                  width: 100,
+                                  height: 35,
+                                  margin: EdgeInsets.only(right: 10),
+                                  decoration: BoxDecoration(color: AppColors.TEAL_LITE, borderRadius: BorderRadius.circular(8)),
+                                  child: Text('Get Coins', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                                ),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Image(image: AssetImage('assets/images/header/Plus.png'), width: 20, height: 20,),
+                                ),
+                              ],
+                            ),
                           ),
                         )
                       // Image(
@@ -108,8 +128,8 @@ class SpinTab extends StatelessWidget {
               ),
             ],
           ),
-          // GetSpin()
-          GetVip()
+           if(widget._showGetVip) GetVip(),
+           if(widget._showGetSpin) GetSpin()
         ],
       ),
     );

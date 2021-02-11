@@ -8,7 +8,23 @@ import 'package:opa_flutter/widgets/spin_tab.dart';
 
 import 'menu_page.dart';
 
-class DashBoard extends StatelessWidget {
+class DashBoard extends StatefulWidget {
+
+  final List<Widget> _tabs = [
+    SpinTab(),
+    StorePage(),
+    StorePage(),
+    StorePage(),
+    MenuPage()
+  ];
+
+  int _selected = 0;
+
+  @override
+  _DashBoardState createState() => _DashBoardState();
+}
+
+class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,7 +34,7 @@ class DashBoard extends StatelessWidget {
             Header(),
             Positioned(
               top: 100,
-              child: StorePage(),
+              child: widget._tabs[widget._selected],
               // child: MenuPage(),
               // child: SpinTab(),
               // child: GetSpin(),
@@ -27,7 +43,13 @@ class DashBoard extends StatelessWidget {
               bottom: 0,
               width: MediaQuery.of(context).size.width,
               child: BottomNavigationBar(
+                currentIndex: widget._selected,
                 iconSize: 30,
+                onTap: (selected) {
+                  setState(() {
+                    widget._selected = selected;
+                  });
+                },
                 items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                       title: Text("Win"),
