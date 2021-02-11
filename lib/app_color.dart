@@ -5,4 +5,5 @@ class AppColors{
   static const TEAL_LITE = Color(0xFF0FEACF);
   static const YELlOW_DARK = Color(0xFFFBB040);
   static const YELlOW_LITE = Color(0xFFFFDE17);
+  static const TEAL_OPACITY = Color(0xE0025F55);
 }
