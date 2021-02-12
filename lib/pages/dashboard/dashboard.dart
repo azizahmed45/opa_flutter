@@ -15,7 +15,6 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-
   List<Widget> _tabs = [
     SpinTab(),
     StorePage(),
@@ -28,99 +27,91 @@ class _DashBoardState extends State<DashBoard> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(95),
+        child: Header(),
+      ),
+      body: Container(
         child: Stack(
           children: <Widget>[
-            Header(),
+            // Header(),
             Positioned(
-              top: 100,
               child: _tabs[_selected],
-              // child: MenuPage(),
-              // child: SpinTab(),
-              // child: GetSpin(),
             ),
-            Positioned(
-              bottom: 0,
-              width: MediaQuery.of(context).size.width,
-              child: BottomNavigationBar(
-                currentIndex: _selected,
-                iconSize: 30,
-                onTap: (selected) {
-                  setState(() {
-                    _selected = selected;
-                  });
-                },
-                items: <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                      title: Text("Win"),
-                      icon: Image(
-                        height: 30,
-                        width: 30,
-                        image: AssetImage('assets/images/footer/Win-Icon2.png'),
-                      ),
-                      activeIcon: Image(
-                        height: 30,
-                        width: 30,
-                        image: AssetImage('assets/images/footer/Win-Icon1.png'),
-                      )),
-                  BottomNavigationBarItem(
-                      title: Text("Store"),
-                      icon: Image(
-                        height: 30,
-                        width: 30,
-                        image:
-                            AssetImage('assets/images/footer/Store-Icon2.png'),
-                      ),
-                      activeIcon: Image(
-                        height: 30,
-                        width: 30,
-                        image:
-                            AssetImage('assets/images/footer/Store-Icon1.png'),
-                      )),
-                  BottomNavigationBarItem(
-                      title: Text("Com"),
-                      icon: Image(
-                        height: 30,
-                        width: 30,
-                        image: AssetImage('assets/images/footer/Com-Icon2.png'),
-                      ),
-                      activeIcon: Image(
-                        height: 30,
-                        width: 30,
-                        image: AssetImage('assets/images/footer/Com-Icon1.png'),
-                      )),
-                  BottomNavigationBarItem(
-                      title: Text("Media"),
-                      icon: Image(
-                        height: 30,
-                        width: 30,
-                        image:
-                            AssetImage('assets/images/footer/Media-Icon2.png'),
-                      ),
-                      activeIcon: Image(
-                        height: 30,
-                        width: 30,
-                        image:
-                            AssetImage('assets/images/footer/Media-Icon1.png'),
-                      )),
-                  BottomNavigationBarItem(
-                      title: Text("Menu"),
-                      icon: Icon(
-                        Icons.menu,
-                        color: Colors.black26,
-                        size: 30,
-                      ),
-                      activeIcon: Icon(
-                        Icons.menu,
-                        color: AppColors.TEAL_LITE,
-                        size: 30,
-                      )),
-                ],
-              ),
-            )
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selected,
+        iconSize: 30,
+        onTap: (selected) {
+          setState(() {
+            _selected = selected;
+          });
+        },
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              title: Text("Win"),
+              icon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Win-Icon2.png'),
+              ),
+              activeIcon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Win-Icon1.png'),
+              )),
+          BottomNavigationBarItem(
+              title: Text("Store"),
+              icon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Store-Icon2.png'),
+              ),
+              activeIcon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Store-Icon1.png'),
+              )),
+          BottomNavigationBarItem(
+              title: Text("Com"),
+              icon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Com-Icon2.png'),
+              ),
+              activeIcon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Com-Icon1.png'),
+              )),
+          BottomNavigationBarItem(
+              title: Text("Media"),
+              icon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Media-Icon2.png'),
+              ),
+              activeIcon: Image(
+                height: 30,
+                width: 30,
+                image: AssetImage('assets/images/footer/Media-Icon1.png'),
+              )),
+          BottomNavigationBarItem(
+              title: Text("Menu"),
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black26,
+                size: 30,
+              ),
+              activeIcon: Icon(
+                Icons.menu,
+                color: AppColors.TEAL_LITE,
+                size: 30,
+              )),
+        ],
       ),
     );
   }

@@ -1,28 +1,43 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:opa_flutter/app_color.dart';
 import 'package:opa_flutter/widgets/get_spin.dart';
 import 'package:opa_flutter/widgets/get_vip.dart';
 import 'package:opa_flutter/widgets/spin_win.dart';
+import 'package:opa_flutter/widgets/spinner/spinner.dart';
 
 class SpinTab extends StatefulWidget {
+
+
+
   @override
   _SpinTabState createState() => _SpinTabState();
 }
 
 class _SpinTabState extends State<SpinTab> {
-
   bool _showGetSpin = false;
   bool _showGetVip = false;
   bool _showWin = false;
 
-  void toggleGetSpin(){
+  final StreamController _dividerController = StreamController<int>();
+
+  final _wheelNotifier = StreamController<double>();
+
+  @override
+  void initState() {
+    _wheelNotifier.add(3);
+    super.initState();
+  }
+
+  void toggleGetSpin() {
     setState(() {
       _showGetSpin = !_showGetSpin;
     });
   }
 
-  void toggleGeVip(){
+  void toggleGeVip() {
     setState(() {
       _showGetVip = !_showGetVip;
     });
@@ -58,23 +73,38 @@ class _SpinTabState extends State<SpinTab> {
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       fit: BoxFit.fill,
-                      image: AssetImage(
-                          'assets/images/others/spin_bg_dec.png'),
+                      image: AssetImage('assets/images/others/spin_bg_dec.png'),
+                    ),
+                    SpinningWheel(
+                      Image.asset('assets/images/others/vpAcc.png'),
+                      width: 310,
+                      height: 310,
+                      initialSpinAngle: 0,
+                      spinResistance: 0.2,
+                      dividers: 6,
+                      onUpdate: _dividerController.add,
+                      onEnd: _dividerController.add,
+                      shouldStartOrStop: _wheelNotifier.stream,
                     ),
                   ],
                 ),
               ),
-              Container(
-                padding:
-                EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(
-                            'assets/images/others/Click-Spin.png'),
-                        fit: BoxFit.fill)),
-                child: Text(
-                  "SPIN",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
+              GestureDetector(
+                onTap: (){
+                  _wheelNotifier.sink.add(8000);
+                  print("test");
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image:
+                              AssetImage('assets/images/others/Click-Spin.png'),
+                          fit: BoxFit.fill)),
+                  child: Text(
+                    "SPIN",
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  ),
                 ),
               ),
               Text(
@@ -97,8 +127,7 @@ class _SpinTabState extends State<SpinTab> {
                         onTap: toggleGeVip,
                         child: Image(
                           width: 100,
-                          image: AssetImage(
-                              'assets/images/others/vpAcc.png'),
+                          image: AssetImage('assets/images/others/vpAcc.png'),
                         ),
                       ),
                     ),
@@ -118,31 +147,43 @@ class _SpinTabState extends State<SpinTab> {
                                   width: 100,
                                   height: 35,
                                   margin: EdgeInsets.only(right: 10),
-                                  decoration: BoxDecoration(color: AppColors.TEAL_LITE, borderRadius: BorderRadius.circular(8)),
-                                  child: Text('Get Coins', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                                  decoration: BoxDecoration(
+                                      color: AppColors.TEAL_LITE,
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Text(
+                                    'Get Coins',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                                 Align(
                                   alignment: Alignment.centerRight,
-                                  child: Image(image: AssetImage('assets/images/header/Plus.png'), width: 20, height: 20,),
+                                  child: Image(
+                                    image: AssetImage(
+                                        'assets/images/header/Plus.png'),
+                                    width: 20,
+                                    height: 20,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         )
-                      // Image(
-                      //   width: 100,
-                      //   image: AssetImage(
-                      //       'assets/images/others/Get-Icon.png'),
-                      // ),
-                    )
+                        // Image(
+                        //   width: 100,
+                        //   image: AssetImage(
+                        //       'assets/images/others/Get-Icon.png'),
+                        // ),
+                        )
                   ],
                 ),
               ),
             ],
           ),
-           if(_showGetVip) GetVip(toggleGeVip),
-           if(_showGetSpin) GetSpin(toggleGetSpin),
-           if(_showWin)SpinWin("7000"),
+          if (_showGetVip) GetVip(toggleGeVip),
+          if (_showGetSpin) GetSpin(toggleGetSpin),
+          if (_showWin) SpinWin("7000"),
         ],
       ),
     );

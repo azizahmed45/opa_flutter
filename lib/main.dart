@@ -6,6 +6,7 @@ import 'package:opa_flutter/pages/interests.dart';
 import 'package:opa_flutter/pages/login.dart';
 import 'package:opa_flutter/pages/sign_up.dart';
 import 'package:opa_flutter/pages/splash.dart';
+import 'package:opa_flutter/pages/update_info.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,16 +23,22 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(
-          body:
-          DashBoard()
+      routes: {
+        '/login': (_) => Login(),
+        '/signUp': (_) => SignUp(),
+        '/dashboard': (_) => DashBoard(),
+      },
+      home:
+          Login()
+          // UpdateInfo()
+          // DashBoard()
           // Header()
           // Interests()
           // SignUp()
           // CreateAccount()
           // Login()
           // Splash()
-      ),
+
     );
   }
 }
