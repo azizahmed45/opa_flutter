@@ -6,6 +6,11 @@ import 'package:opa_flutter/widgets/app_dialog.dart';
 
 
 class GetSpin extends StatelessWidget {
+
+  final Function toggleView;
+
+  GetSpin(this.toggleView);
+
   @override
   Widget build(BuildContext context) {
     return AppDialog(
@@ -14,11 +19,15 @@ class GetSpin extends StatelessWidget {
           children: <Widget>[
             Align(
                 alignment: Alignment.topRight,
-                child: Container(
-                  child: FaIcon(
-                    FontAwesomeIcons.times,
-                    color: Colors.white,
-                    size: 20,
+                child: GestureDetector(
+                  onTap: toggleView,
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: FaIcon(
+                      FontAwesomeIcons.times,
+                      color: Colors.white,
+                      size: 20,
+                    ),
                   ),
                 )),
             Align(

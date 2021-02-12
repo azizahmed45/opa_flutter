@@ -17,7 +17,7 @@ class _AppDialogState extends State<AppDialog> {
     return Container(
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
-      height: MediaQuery.of(context).size.height - 220,
+      height: MediaQuery.of(context).size.height - 300,
       width: MediaQuery.of(context).size.width - 40,
       decoration: BoxDecoration(
           color: AppColors.TEAL_OPACITY,

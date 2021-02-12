@@ -3,16 +3,31 @@ import 'package:flutter/widgets.dart';
 import 'package:opa_flutter/app_color.dart';
 import 'package:opa_flutter/widgets/get_spin.dart';
 import 'package:opa_flutter/widgets/get_vip.dart';
+import 'package:opa_flutter/widgets/spin_win.dart';
 
 class SpinTab extends StatefulWidget {
-  bool _showGetSpin = false;
-  bool _showGetVip = false;
-
   @override
   _SpinTabState createState() => _SpinTabState();
 }
 
 class _SpinTabState extends State<SpinTab> {
+
+  bool _showGetSpin = false;
+  bool _showGetVip = false;
+  bool _showWin = false;
+
+  void toggleGetSpin(){
+    setState(() {
+      _showGetSpin = !_showGetSpin;
+    });
+  }
+
+  void toggleGeVip(){
+    setState(() {
+      _showGetVip = !_showGetVip;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -75,14 +90,11 @@ class _SpinTabState extends State<SpinTab> {
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Stack(
                   children: <Widget>[
+                    //get vip
                     Align(
                       alignment: Alignment.centerLeft,
                       child: GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            widget._showGetVip = !widget._showGetVip;
-                          });
-                        },
+                        onTap: toggleGeVip,
                         child: Image(
                           width: 100,
                           image: AssetImage(
@@ -90,12 +102,12 @@ class _SpinTabState extends State<SpinTab> {
                         ),
                       ),
                     ),
+
+                    //Get Coin/Spin
                     Align(
                         alignment: Alignment.centerRight,
                         child: GestureDetector(
-                          onTap: (){ setState(() {
-                            widget._showGetSpin = !widget._showGetSpin;
-                          });},
+                          onTap: toggleGetSpin,
                           child: Container(
                             width: 100,
                             height: 35,
@@ -128,8 +140,9 @@ class _SpinTabState extends State<SpinTab> {
               ),
             ],
           ),
-           if(widget._showGetVip) GetVip(),
-           if(widget._showGetSpin) GetSpin()
+           if(_showGetVip) GetVip(toggleGeVip),
+           if(_showGetSpin) GetSpin(toggleGetSpin),
+           if(_showWin)SpinWin("7000"),
         ],
       ),
     );

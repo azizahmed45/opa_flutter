@@ -6,25 +6,26 @@ import 'package:opa_flutter/pages/dashboard/store_page.dart';
 import 'package:opa_flutter/widgets/get_spin.dart';
 import 'package:opa_flutter/widgets/spin_tab.dart';
 
+import 'com_page.dart';
 import 'menu_page.dart';
 
 class DashBoard extends StatefulWidget {
+  @override
+  _DashBoardState createState() => _DashBoardState();
+}
 
-  final List<Widget> _tabs = [
+class _DashBoardState extends State<DashBoard> {
+
+  List<Widget> _tabs = [
     SpinTab(),
     StorePage(),
-    StorePage(),
+    ComPage(),
     StorePage(),
     MenuPage()
   ];
 
   int _selected = 0;
 
-  @override
-  _DashBoardState createState() => _DashBoardState();
-}
-
-class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,7 +35,7 @@ class _DashBoardState extends State<DashBoard> {
             Header(),
             Positioned(
               top: 100,
-              child: widget._tabs[widget._selected],
+              child: _tabs[_selected],
               // child: MenuPage(),
               // child: SpinTab(),
               // child: GetSpin(),
@@ -43,11 +44,11 @@ class _DashBoardState extends State<DashBoard> {
               bottom: 0,
               width: MediaQuery.of(context).size.width,
               child: BottomNavigationBar(
-                currentIndex: widget._selected,
+                currentIndex: _selected,
                 iconSize: 30,
                 onTap: (selected) {
                   setState(() {
-                    widget._selected = selected;
+                    _selected = selected;
                   });
                 },
                 items: <BottomNavigationBarItem>[
