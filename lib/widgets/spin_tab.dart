@@ -21,15 +21,6 @@ class _SpinTabState extends State<SpinTab> {
   bool _showGetVip = false;
   bool _showWin = false;
 
-  final StreamController _dividerController = StreamController<int>();
-
-  final _wheelNotifier = StreamController<double>();
-
-  @override
-  void initState() {
-    _wheelNotifier.add(3);
-    super.initState();
-  }
 
   void toggleGetSpin() {
     setState(() {
@@ -75,24 +66,15 @@ class _SpinTabState extends State<SpinTab> {
                       fit: BoxFit.fill,
                       image: AssetImage('assets/images/others/spin_bg_dec.png'),
                     ),
-                    SpinningWheel(
-                      Image.asset('assets/images/others/vpAcc.png'),
-                      width: 310,
-                      height: 310,
-                      initialSpinAngle: 0,
-                      spinResistance: 0.2,
-                      dividers: 6,
-                      onUpdate: _dividerController.add,
-                      onEnd: _dividerController.add,
-                      shouldStartOrStop: _wheelNotifier.stream,
-                    ),
+                    Align(
+                        alignment: Alignment.center
+                        ,child: Spinner())
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: (){
-                  _wheelNotifier.sink.add(8000);
-                  print("test");
+
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),

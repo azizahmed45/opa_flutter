@@ -77,7 +77,7 @@ class Login extends StatelessWidget {
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
                 onPressed: (){
-                  Navigator.pushNamed(context, "/dashboard");
+                  Navigator.popAndPushNamed(context, "/dashboard");
                 },
               ),
             ),
