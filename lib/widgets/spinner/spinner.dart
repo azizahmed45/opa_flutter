@@ -32,10 +32,21 @@ class Spinner extends StatelessWidget {
               Transform.rotate(
                 angle: i * angle,
                 child: CustomPaint(
-                  painter: MyPainter(text: (100*i).toString() , color: colors[i], angle: angle, itemSize: itemSize),
+                  painter: MyPainter(text: (1000*i).toString() , color: colors[i], angle: angle, itemSize: itemSize),
                 ),
               ),
-
+              Align(
+                alignment: Alignment.center,
+                child: Image.asset('assets/images/spin/Center.png', width: 40, height: 40,),
+              ),
+            Align(
+              alignment: Alignment.center,
+              child: Image.asset('assets/images/spin/Frame.png', width: 300, height: 300,),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Image.asset('assets/images/spin/Frame-Shadow.png', width: 300, height: 300,),
+            )
           ],
         ));
   }
@@ -62,7 +73,7 @@ class MyPainter extends CustomPainter {
       ..arcTo(Rect.fromCircle(center: Offset(cx, cy), radius: min(cx + 10, cy +10)), 0,
           angle, false)
       ..close();
-    canvas.drawPath(circlePath, circlePaint);
+    // canvas.drawPath(circlePath, circlePaint);
 
     var paint = Paint()
       ..color = color;
@@ -76,7 +87,14 @@ class MyPainter extends CustomPainter {
     canvas.drawPath(path, paint);
 
     canvas.save();
-    canvas.translate(cx + cx/2, cy + cy/itemSize);
+
+    var x = cx *  cos(angle/2);
+    var y = cx *  sin(angle/2);
+
+    // canvas.translate(cx + cx/2, cy + cy/itemSize);
+    canvas.translate(cx + 60, cy + 5 );
+    // canvas.rotate(angle/2);
+
     canvas.rotate(angle/2);
 
     TextSpan span = new TextSpan(
