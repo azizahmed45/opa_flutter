@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,7 +9,7 @@ import 'package:opa_flutter/widgets/get_vip.dart';
 import 'package:opa_flutter/widgets/spin_win.dart';
 import 'package:opa_flutter/widgets/spinner/spinner.dart';
 
-class SpinTab extends StatefulWidget {
+class SpinTab extends StatefulWidget{
 
 
 
@@ -16,10 +17,39 @@ class SpinTab extends StatefulWidget {
   _SpinTabState createState() => _SpinTabState();
 }
 
-class _SpinTabState extends State<SpinTab> {
+class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
   bool _showGetSpin = false;
   bool _showGetVip = false;
   bool _showWin = false;
+
+  AnimationController _animationController;
+  Tween<double> tween;
+  double value;
+
+  bool success = false;
+  @override
+  void initState() {
+    // _animationController = AnimationController(
+    //   duration: Duration(seconds: 20),
+    //   vsync: this,
+    // )..repeat();
+
+    value = ((2 * pi) / 8 *3 + (((2 * pi) / 8)/2)) * 2 ;
+
+    _animationController = AnimationController(
+      animationBehavior: AnimationBehavior.preserve,
+      upperBound: value,
+      lowerBound: 0,
+      duration: Duration(seconds: 5),
+      vsync: this
+    );
+
+    // tween = Tween<double>(begin: 0, end: value)..animate(_animationController);
+
+    super.initState();
+  }
+
+
 
 
   void toggleGetSpin() {
@@ -34,6 +64,11 @@ class _SpinTabState extends State<SpinTab> {
     });
   }
 
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,12 +103,53 @@ class _SpinTabState extends State<SpinTab> {
                     ),
                     Align(
                         alignment: Alignment.center
-                        ,child: Spinner())
+                        ,child:
+                        AnimatedBuilder(
+                          animation: _animationController,
+                          child: Spinner(),
+                          builder: (_, widget){
+                            print("anim value: ${_animationController.value}");
+                            print("value $value");
+                            if(_animationController.value.roundToDouble() == value.roundToDouble() && success){
+                              _animationController.stop();
+                              print("test");
+                            }
+                            return  Transform.rotate(angle: _animationController.value, child: Spinner());
+                          },
+                        )
+
+                    // TweenAnimationBuilder(
+                    //   tween: tween,
+                    //   duration: Duration(seconds: 4),
+                    //   child: Spinner(),
+                    //     curve: Curves.easeInOut,
+                    //     builder: (_, angle, widget){
+                    //       return Transform.rotate(angle: angle, child: Spinner(),);
+                    //     },
+                    // )
+                    )
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: (){
+                  // tween.animate(_animationController);
+                  // _animationController.repeat(max: 2*pi );
+                  // if(_animationController.isAnimating){
+                  //   // _animationController.stop();
+                  //   tween.animate(_animationController);
+                  // } else {
+                  //   _animationController.repeat();
+                  // }
+                  // setState(() {
+                  //
+                  // });
+
+                  if(!_animationController.isAnimating){
+                    _animationController.repeat(min: 0);
+                    success = true;
+                  }
+
 
                 },
                 child: Container(
