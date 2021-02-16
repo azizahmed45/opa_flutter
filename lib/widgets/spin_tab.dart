@@ -24,27 +24,16 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
 
   AnimationController _animationController;
   Tween<double> tween;
-  double value;
+  double value = 2*pi;
+  int duration =3;
+
+  Curve curve = Curves.linear;
 
   bool success = false;
   @override
   void initState() {
-    // _animationController = AnimationController(
-    //   duration: Duration(seconds: 20),
-    //   vsync: this,
-    // )..repeat();
 
-    value = ((2 * pi) / 8 *3 + (((2 * pi) / 8)/2)) * 2 ;
-
-    _animationController = AnimationController(
-      animationBehavior: AnimationBehavior.preserve,
-      upperBound: value,
-      lowerBound: 0,
-      duration: Duration(seconds: 5),
-      vsync: this
-    );
-
-    // tween = Tween<double>(begin: 0, end: value)..animate(_animationController);
+    tween = Tween<double>(begin: 0, end:  value);
 
     super.initState();
   }
@@ -64,11 +53,6 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
     });
   }
 
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -104,29 +88,36 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
                     Align(
                         alignment: Alignment.center
                         ,child:
-                        AnimatedBuilder(
-                          animation: _animationController,
-                          child: Spinner(),
-                          builder: (_, widget){
-                            print("anim value: ${_animationController.value}");
-                            print("value $value");
-                            if(_animationController.value.roundToDouble() == value.roundToDouble() && success){
-                              _animationController.stop();
-                              print("test");
-                            }
-                            return  Transform.rotate(angle: _animationController.value, child: Spinner());
-                          },
-                        )
+                        // AnimatedBuilder(
+                        //   animation: _animationController,
+                        //   child: Spinner(),
+                        //   builder: (_, widget){
+                        //     print("anim value: ${_animationController.value}");
+                        //     print("value $value");
+                        //
+                        //     // if(_animationController.value.roundToDouble() == value.roundToDouble() && success){
+                        //     //   _animationController.stop();
+                        //     //   print("test");
+                        //     // }
+                        //     return  Transform.rotate(angle: _animationController.value, child: widget);
+                        //   },
+                        // )
 
-                    // TweenAnimationBuilder(
-                    //   tween: tween,
-                    //   duration: Duration(seconds: 4),
-                    //   child: Spinner(),
-                    //     curve: Curves.easeInOut,
-                    //     builder: (_, angle, widget){
-                    //       return Transform.rotate(angle: angle, child: Spinner(),);
-                    //     },
-                    // )
+                    TweenAnimationBuilder(
+                      tween: Tween<double>(begin: 0, end:  value),
+                      duration: Duration(seconds: 2),
+                      child: Spinner(),
+                        onEnd: () =>
+                        setState(() {
+                          value += 2*pi;
+                          curve = Curves.easeOut;
+                        })
+                        ,
+                        curve: curve,
+                        builder: (_, angle, widget){
+                          return Transform.rotate(angle: angle, child: widget,);
+                        },
+                    )
                     )
                   ],
                 ),
@@ -136,8 +127,8 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
                   // tween.animate(_animationController);
                   // _animationController.repeat(max: 2*pi );
                   // if(_animationController.isAnimating){
-                  //   // _animationController.stop();
-                  //   tween.animate(_animationController);
+                  //   _animationController.stop();
+                  //   // tween.animate(_animationController);
                   // } else {
                   //   _animationController.repeat();
                   // }
@@ -145,10 +136,10 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
                   //
                   // });
 
-                  if(!_animationController.isAnimating){
+/*                  if(!_animationController.isAnimating){
                     _animationController.repeat(min: 0);
                     success = true;
-                  }
+                  }*/
 
 
                 },
