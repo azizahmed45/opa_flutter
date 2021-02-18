@@ -5,7 +5,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:opa_flutter/widgets/bordered_item.dart';
 import 'package:opa_flutter/widgets/gradient.dart';
 
-class SignUp extends StatelessWidget {
+import '../constants.dart';
+
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+
+  String _country = COUNTRIES[0];
+  DateTime _dob ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,11 +107,13 @@ class SignUp extends StatelessWidget {
                   ),
                   BorderedItem(
                     width: 300,
-                    child: TextFormField(
-                      style: TextStyle(fontSize: 18, color: Colors.white),
-                      decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Date of Birth'),
-                    ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        _dob != null ? _dob.toIso8601String(): "Date of Birth",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    )
                   ),
                   Container(
                     width: 300,
@@ -112,14 +125,31 @@ class SignUp extends StatelessWidget {
                       style: TextStyle(fontSize: 10,),
                     ),
                   ),
-                  BorderedItem(
-                    width: 300,
-                    child: TextFormField(
-                      style: TextStyle(fontSize: 18, color: Colors.white),
-                      decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Country'),
-                    ),
+
+                  BorderedItem(width: 300,
+                  child: DropdownButtonFormField<String>(
+                    isExpanded: true,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(0),
+                        border: InputBorder.none),
+                    value: _country,
+                    items: COUNTRIES.map<DropdownMenuItem<String>>((e) =>
+                        DropdownMenuItem(value: e, child: Text(e, style: TextStyle(
+                          fontSize: 18
+                        ),),)
+                    ).toList(),
+                    onChanged: (value){},
                   ),
+                  )
+                  ,
+                  // BorderedItem(
+                  //   width: 300,
+                  //   child: TextFormField(
+                  //     style: TextStyle(fontSize: 18, color: Colors.white),
+                  //     decoration: InputDecoration(
+                  //         border: InputBorder.none, hintText: 'Country'),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 15,
                   ),
@@ -127,6 +157,7 @@ class SignUp extends StatelessWidget {
                     width: 300,
                     child: TextFormField(
                       style: TextStyle(fontSize: 18, color: Colors.white),
+                      obscureText: true,
                       decoration: InputDecoration(
                           border: InputBorder.none, hintText: 'password'),
                     ),
@@ -145,6 +176,7 @@ class SignUp extends StatelessWidget {
                     width: 300,
                     child: TextFormField(
                       style: TextStyle(fontSize: 18, color: Colors.white),
+                      obscureText: true,
                       decoration: InputDecoration(
                           border: InputBorder.none, hintText: 'Confirm Password'),
                     ),
@@ -163,6 +195,9 @@ class SignUp extends StatelessWidget {
                     height: 10,
                   ),
                   GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, "/dashboard");
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(

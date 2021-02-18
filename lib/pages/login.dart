@@ -115,7 +115,7 @@ class Login extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, "/signUp");
+                Navigator.pushNamed(context, "/createAccount");
               },
             ),
             SizedBox(height: 10,),

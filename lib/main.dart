@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/login': (_) => Login(),
         '/signUp': (_) => SignUp(),
         '/dashboard': (_) => DashBoard(),
+        '/createAccount': (_) => CreateAccount(),
       },
       home:
           Login()

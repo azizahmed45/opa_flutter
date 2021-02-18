@@ -37,7 +37,7 @@ class Spinner extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.center,
-                child: Image.asset('assets/images/spin/Center.png', width: 40, height: 40,),
+                child: Image.asset('assets/images/spin/Center.png', width: 70, height: 70,),
               ),
             Align(
               alignment: Alignment.center,

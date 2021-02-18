@@ -1,4 +1,4 @@
-import 'dart:async';
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -21,10 +21,12 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
   bool _showGetSpin = false;
   bool _showGetVip = false;
   bool _showWin = false;
+  bool _startSpinner = false;
+  int wonPinnt = 0;
 
   AnimationController _animationController;
   Tween<double> tween;
-  double value = 2*pi;
+  double value = 0;
   int duration =3;
 
   Curve curve = Curves.linear;
@@ -107,12 +109,29 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
                       tween: Tween<double>(begin: 0, end:  value),
                       duration: Duration(seconds: 2),
                       child: Spinner(),
-                        onEnd: () =>
-                        setState(() {
-                          value += 2*pi;
-                          curve = Curves.easeOut;
-                        })
-                        ,
+                        onEnd: (){
+                          var won = value.remainder(2*pi);
+                          var perItem = (2*pi) / 8;
+                          won = won/perItem;
+                          print("$won");
+                          setState(() {
+                            _showWin = true;
+                            wonPinnt = (8 - won.ceil() -2)  * 1000;
+                          });
+
+                        },
+                        // onEnd: () =>
+                        // setState(() {
+                        //   if(_startSpinner && !success){
+                        //     value += 2*pi;
+                        //     curve = Curves.linear;
+                        //   } else if( _startSpinner && success){
+                        //     // value += pi;
+                        //     curve = Curves.easeOut;
+                        //     // _startSpinner = !_startSpinner;
+                        //   }
+                        // })
+                        // ,
                         curve: curve,
                         builder: (_, angle, widget){
                           return Transform.rotate(angle: angle, child: widget,);
@@ -124,6 +143,14 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
               ),
               GestureDetector(
                 onTap: (){
+
+                  setState(() {
+                    _startSpinner = true;
+                    success = true;
+                    // value += 2*pi + pi;
+                    value += 3*pi + ((2*pi)/8)/2;
+                    curve = Curves.easeOut;
+                  });
                   // tween.animate(_animationController);
                   // _animationController.repeat(max: 2*pi );
                   // if(_animationController.isAnimating){
@@ -232,7 +259,7 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin{
           ),
           if (_showGetVip) GetVip(toggleGeVip),
           if (_showGetSpin) GetSpin(toggleGetSpin),
-          if (_showWin) SpinWin("7000"),
+          if (_showWin) SpinWin(wonPinnt.toString()),
         ],
       ),
     );
