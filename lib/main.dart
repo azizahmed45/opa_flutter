@@ -7,6 +7,7 @@ import 'package:opa_flutter/pages/login.dart';
 import 'package:opa_flutter/pages/sign_up.dart';
 import 'package:opa_flutter/pages/splash.dart';
 import 'package:opa_flutter/pages/update_info.dart';
+import 'package:opa_flutter/pages/verification_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         '/createAccount': (_) => CreateAccount(),
       },
       home:
-          Splash()
+        VerificationPage()
+          // Splash()
           // UpdateInfo()
           // DashBoard()
           // Header()
