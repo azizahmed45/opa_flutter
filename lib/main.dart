@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/createAccount': (_) => CreateAccount(),
       },
       home:
-          Login()
+          Splash()
           // UpdateInfo()
           // DashBoard()
           // Header()

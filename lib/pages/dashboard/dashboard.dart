@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:opa_flutter/app_color.dart';
+import 'package:opa_flutter/pages/about_page.dart';
 import 'package:opa_flutter/pages/dashboard/header.dart';
 import 'package:opa_flutter/pages/dashboard/store_page.dart';
 import 'package:opa_flutter/widgets/get_spin.dart';
 import 'package:opa_flutter/widgets/spin_tab.dart';
 
+import '../media_page.dart';
 import 'com_page.dart';
 import 'menu_page.dart';
 
@@ -19,7 +21,7 @@ class _DashBoardState extends State<DashBoard> {
     SpinTab(),
     StorePage(),
     ComPage(),
-    StorePage(),
+    MediaPage(),
     MenuPage()
   ];
 

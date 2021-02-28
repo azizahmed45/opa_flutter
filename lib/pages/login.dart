@@ -29,7 +29,7 @@ class Login extends StatelessWidget {
                   fontSize: 30, color: Colors.white, fontWeight: FontWeight.w300),
             ),
             Text(
-              "OJ Time",
+              "OPA live",
               style: TextStyle(
                   fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
             ),
@@ -120,7 +120,7 @@ class Login extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             Text(
-              "some arabic text",
+              "تغيير اللغة الى العربية",
               style: TextStyle(
                   color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
             ),

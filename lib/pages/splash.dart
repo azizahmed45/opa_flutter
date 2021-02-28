@@ -1,31 +1,42 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Splash extends StatelessWidget {
+class Splash extends StatefulWidget {
+  @override
+  _SplashState createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+
+  final splashDelay = 3;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _loadWidget();
+  }
+
+  _loadWidget() async {
+    var _duration = Duration(seconds: splashDelay);
+    return Timer(_duration, navigationPage);
+  }
+
+  void navigationPage() {
+    Navigator.pushReplacementNamed(context, "/login");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            LogoChar(
-              char: "O",
-              color: Colors.teal,
-            ),
-            LogoChar(
-              char: "P",
-              color: Colors.orangeAccent,
-            ),
-            LogoChar(
-              char: "A",
-              color: Colors.black,
-            ),
-          ],
-        ),
+        child: Center(
+          child: Image.asset("assets/images/others/logo.png"),
+        )
       ),
     );
   }
