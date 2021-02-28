@@ -9,11 +9,11 @@ class SpinWin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
         color: AppColors.OPACITY,
         alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 30),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Stack(
@@ -24,15 +24,12 @@ class SpinWin extends StatelessWidget {
                 ),
                 Column(
                   children: <Widget>[
-                    Text("Congratulations", style: TextStyle(color: AppColors.YELlOW_DARK, fontSize: 30, fontWeight: FontWeight.bold),),
-                    Text(value, style: TextStyle(color: AppColors.YELlOW_DARK, fontSize: 80, fontWeight: FontWeight.w900),),
+                    Text("Congratulations", style: TextStyle(color: AppColors.YELlOW_LITE, fontSize: 30, fontWeight: FontWeight.bold),),
+                    Text(value, style: TextStyle(color: AppColors.YELlOW_LITE, fontSize: 80, fontWeight: FontWeight.w900),),
                   ],
                 )
               ],
             ),
-            SizedBox(
-              height: 220,
-            )
           ],
         ));
   }

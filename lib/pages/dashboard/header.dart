@@ -25,6 +25,13 @@ class Header extends StatelessWidget {
                   ),
                   Align(
                     widthFactor: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                    child: CircleAvatar(
+                      backgroundImage:AssetImage('assets/images/others/pubg.png'),
+                    ),
+                  ),
+                  Align(
+                    widthFactor: MediaQuery.of(context).size.width,
                     alignment: Alignment.centerRight,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,

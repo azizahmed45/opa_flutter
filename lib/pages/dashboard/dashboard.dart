@@ -8,6 +8,7 @@ import 'package:opa_flutter/widgets/get_spin.dart';
 import 'package:opa_flutter/widgets/spin_tab.dart';
 
 import '../media_page.dart';
+import '../store_item_details.dart';
 import 'com_page.dart';
 import 'menu_page.dart';
 
@@ -20,6 +21,7 @@ class _DashBoardState extends State<DashBoard> {
   List<Widget> _tabs = [
     SpinTab(),
     StorePage(),
+    // StoreItemDetails(),
     ComPage(),
     MediaPage(),
     MenuPage()

@@ -66,14 +66,14 @@ class MyPainter extends CustomPainter {
     var cy = size.height / 2;
 
     var circlePaint = Paint()
-    ..color = Colors.blue;
+    ..color = Colors.white;
     var circlePath = Path()
       ..moveTo(cx, cy)
       ..lineTo(cx + cx + 10, cy)
-      ..arcTo(Rect.fromCircle(center: Offset(cx, cy), radius: min(cx + 10, cy +10)), 0,
+      ..arcTo(Rect.fromCircle(center: Offset(cx, cy), radius: min(cx + 3, cy +3)), 0,
           angle, false)
       ..close();
-    // canvas.drawPath(circlePath, circlePaint);
+    canvas.drawPath(circlePath, circlePaint);
 
     var paint = Paint()
       ..color = color;

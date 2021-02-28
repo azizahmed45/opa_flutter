@@ -23,6 +23,7 @@ environment:
 dependencies:
   font_awesome_flutter: 8.11.0
   youtube_player_flutter: ^7.0.0+7
+  carousel_slider: ^3.0.0
   flutter:
     sdk: flutter
 

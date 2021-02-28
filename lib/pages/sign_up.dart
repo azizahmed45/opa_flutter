@@ -196,7 +196,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   GestureDetector(
                     onTap: (){
-                      Navigator.pushNamed(context, "/dashboard");
+                      Navigator.pushNamed(context, "/verification");
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),

@@ -4,6 +4,7 @@ import 'package:opa_flutter/pages/dashboard/dashboard.dart';
 import 'package:opa_flutter/pages/dashboard/header.dart';
 import 'package:opa_flutter/pages/interests.dart';
 import 'package:opa_flutter/pages/login.dart';
+import 'package:opa_flutter/pages/overview_slider.dart';
 import 'package:opa_flutter/pages/sign_up.dart';
 import 'package:opa_flutter/pages/splash.dart';
 import 'package:opa_flutter/pages/update_info.dart';
@@ -29,9 +30,14 @@ class MyApp extends StatelessWidget {
         '/signUp': (_) => SignUp(),
         '/dashboard': (_) => DashBoard(),
         '/createAccount': (_) => CreateAccount(),
+        '/verification': (_) => VerificationPage(),
+        '/overview': (_) => OverviewSlider(),
+        '/interests': (_) => Interests(),
       },
       home:
-        VerificationPage()
+        Splash()
+        // OverviewSlider()
+        // VerificationPage()
           // Splash()
           // UpdateInfo()
           // DashBoard()

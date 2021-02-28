@@ -12,7 +12,7 @@ class ComPage extends StatelessWidget {
           Scrollbar(
         isAlwaysShown: true,
         child: ListView.builder(
-            itemCount: 3,
+            itemCount: 4,
             itemBuilder: (context, index) {
               return Container(
                 margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -22,6 +22,9 @@ class ComPage extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image(
+                        width: 350,
+                        height: 180,
+                        fit: BoxFit.fill,
                         image: NetworkImage(
                             'https://i.ytimg.com/vi/YShXBs0W8eQ/maxresdefault.jpg'),
                       ),
@@ -44,8 +47,8 @@ class ComPage extends StatelessWidget {
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight)),
                         child: Text(
-                          "Registration",
-                          style: TextStyle(fontSize: 20),
+                          "REGISTRATION",
+                          style: TextStyle(fontSize: 18),
                         ),
                       ),
                     )
