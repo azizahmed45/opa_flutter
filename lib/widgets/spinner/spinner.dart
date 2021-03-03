@@ -3,7 +3,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Spinner extends StatelessWidget {
+class Spinner extends StatefulWidget {
+
+
+
+  @override
+  _SpinnerState createState() => _SpinnerState();
+}
+
+class _SpinnerState extends State<Spinner> {
   final colors = [
     Colors.green,
     Colors.yellow,
@@ -15,9 +23,21 @@ class Spinner extends StatelessWidget {
     Colors.indigo,
   ];
 
+  Curve curve = Curves.linear;
+  double value = 0;
+
   final int itemSize = 8;
+
   double angle = pi * 2 / 8;
 
+  @override
+  void initState() {
+      // value += 2*pi + pi;
+      value += 3*pi + ((2*pi)/8)/2;
+      curve = Curves.easeOut;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +55,25 @@ class Spinner extends StatelessWidget {
                   painter: MyPainter(text: (1000*i).toString() , color: colors[i], angle: angle, itemSize: itemSize),
                 ),
               ),
+            TweenAnimationBuilder(
+              tween: Tween<double>(begin: 0, end:  value),
+              duration: Duration(seconds: 5),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Image.asset('assets/images/others/Spin-Pointer.png', height: 130,),
+              ),
+                curve: curve,
+                builder: (_, angle, widget){
+                  return Transform.rotate(angle: angle, child: widget,);
+                }
+            ),
+            // Transform.rotate(
+            //   angle: (pi/2) + ((pi*2)/8)/2 ,
+            //   child: Align(
+            //     alignment: Alignment.topCenter,
+            //     child: Image.asset('assets/images/others/Spin-Pointer.png', height: 130,),
+            //   ),
+            // ),
               Align(
                 alignment: Alignment.center,
                 child: Image.asset('assets/images/spin/Center.png', width: 70, height: 70,),
@@ -46,7 +85,8 @@ class Spinner extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Image.asset('assets/images/spin/Frame-Shadow.png', width: 300, height: 300,),
-            )
+            ),
+
           ],
         ));
   }
