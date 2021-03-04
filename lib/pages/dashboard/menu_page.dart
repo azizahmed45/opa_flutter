@@ -12,6 +12,7 @@ class MenuPage extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       padding: EdgeInsets.all(30),
       child: Column(
+
         children: <Widget>[
           MenuItem(name: "Profile",),
           MenuItem(name: "Notifications",),

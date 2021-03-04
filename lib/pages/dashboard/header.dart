@@ -5,12 +5,15 @@ import 'package:opa_flutter/app_color.dart';
 class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    print("${width}");
     return SafeArea(
       child: Container(
+        height: width/4,
         child: Column(
           children: <Widget>[
             Container(
-              height: 70,
+              height: width/5.6,
               // color: Colors.red,
               child: Stack(
                 children: <Widget>[
@@ -18,8 +21,8 @@ class Header extends StatelessWidget {
                     widthFactor: MediaQuery.of(context).size.width,
                     alignment: Alignment.center,
                     child: Image(
-                      height: 50,
-                      width: 50,
+                      height: width/7.84,
+                      width: width/7.84,
                       image: AssetImage('assets/images/header/VIP-1.png'),
                     ),
                   ),
@@ -44,11 +47,11 @@ class Header extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 SizedBox(
-                                  width: 10,
+                                  width: width/39.2,
                                 ),
                                 Image(
-                                  height: 25,
-                                  width: 65,
+                                  height: width/15.68,
+                                  width: width/6.03,
                                   image:
                                       AssetImage('assets/images/header/WalletPar.png'),
                                 ),
@@ -58,7 +61,7 @@ class Header extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 SizedBox(
-                                  width: 35,
+                                  width: width/11.2,
                                 ),
                                 Text(
                                   "300",
@@ -68,42 +71,42 @@ class Header extends StatelessWidget {
                               ],
                             ),
                             Image(
-                              height: 30,
-                              width: 30,
+                              height: width/13.06,
+                              width: width/13.06,
                               image: AssetImage('assets/images/header/WalletC.png'),
                             ),
                           ],
                         ),
                         SizedBox(
-                          width: 10,
+                          width: width/39.2,
                         ),
                         Image(
-                          height: 30,
-                          width: 30,
+                          height: width/13.06,
+                          width: width/13.06,
                           image: AssetImage('assets/images/header/Plus.png'),
                         ),
                         SizedBox(
-                          width: 10,
+                          width: width/39.2,
                         ),
                         Container(
-                          height: 30,
-                          width: 30,
+                          height: width/13.06,
+                          width: width/13.06,
                           child: Stack(
                             children: <Widget>[
                               Image(
-                                height: 30,
-                                width: 30,
+                                height: width/13.06,
+                                width: width/13.06,
                                 image: AssetImage('assets/images/header/Notf-2.png'),
                               ),
                               Align(
                                 alignment: Alignment.topRight,
                                 child: Container(
-                                  margin: EdgeInsets.only(right: 3.5, top: 1),
+                                  margin: EdgeInsets.only(right: width/112, top: 1),
                                   child: Text(
                                     "22",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 6,
+                                      fontSize: width/65.33,
                                     ),
                                   ),
                                 ),
@@ -128,7 +131,7 @@ class Header extends StatelessWidget {
                         Text('P', style: TextStyle(fontSize: 20, color: AppColors.YELlOW_LITE, fontWeight: FontWeight.bold),),
                         Text('A', style: TextStyle(fontSize: 20, color: Colors.black,  fontWeight: FontWeight.bold),),
                         SizedBox(width: 20,),
-                        Text("Aziz Ahmed", style: TextStyle(fontSize: 15, color: Colors.black),)
+                        Text("Aziz Ahmed", style: TextStyle(fontSize: width/26.13, color: Colors.black),)
                       ],
                     ),
                   )

@@ -5,7 +5,9 @@ import 'package:flutter/widgets.dart';
 
 class Spinner extends StatefulWidget {
 
-
+  final double startAngle;
+  final double endAngle;
+  Spinner({this.startAngle, this.endAngle});
 
   @override
   _SpinnerState createState() => _SpinnerState();
@@ -23,27 +25,33 @@ class _SpinnerState extends State<Spinner> {
     Colors.indigo,
   ];
 
-  Curve curve = Curves.linear;
-  double value = 0;
+  Curve curve = Curves.easeOutCirc;
+  // double value = 0;
 
   final int itemSize = 8;
 
   double angle = pi * 2 / 8;
 
+
   @override
   void initState() {
-      // value += 2*pi + pi;
-      value += 3*pi + ((2*pi)/8)/2;
-      curve = Curves.easeOut;
-
     super.initState();
   }
 
+  // void spin(double angle){
+  //   // value += 2*pi + pi;
+  //   // value += 3*pi + ((2*pi)/8)/2;
+  //   // value += angle;
+  //   curve = Curves.easeOut;
+  //
+  // }
+
   @override
   Widget build(BuildContext context) {
+    double spinnerSize = MediaQuery.of(context).size.width/1.5;
     return Container(
-        width: 300,
-        height: 300,
+        width: spinnerSize,
+        height: spinnerSize,
         // color: Colors.red,
         child: Stack(
           fit: StackFit.expand,
@@ -56,11 +64,11 @@ class _SpinnerState extends State<Spinner> {
                 ),
               ),
             TweenAnimationBuilder(
-              tween: Tween<double>(begin: 0, end:  value),
+              tween: Tween<double>(begin: widget.startAngle, end:  widget.endAngle),
               duration: Duration(seconds: 5),
               child: Align(
                 alignment: Alignment.topCenter,
-                child: Image.asset('assets/images/others/Spin-Pointer.png', height: 130,),
+                child: Image.asset('assets/images/others/Spin-Pointer.png', height: spinnerSize/2.3,),
               ),
                 curve: curve,
                 builder: (_, angle, widget){
@@ -68,7 +76,7 @@ class _SpinnerState extends State<Spinner> {
                 }
             ),
             // Transform.rotate(
-            //   angle: (pi/2) + ((pi*2)/8)/2 ,
+            //   angle: widget.angle ,
             //   child: Align(
             //     alignment: Alignment.topCenter,
             //     child: Image.asset('assets/images/others/Spin-Pointer.png', height: 130,),
@@ -76,15 +84,15 @@ class _SpinnerState extends State<Spinner> {
             // ),
               Align(
                 alignment: Alignment.center,
-                child: Image.asset('assets/images/spin/Center.png', width: 70, height: 70,),
+                child: Image.asset('assets/images/spin/Center.png', width: spinnerSize/4.2, height: spinnerSize/4.2,),
               ),
             Align(
               alignment: Alignment.center,
-              child: Image.asset('assets/images/spin/Frame.png', width: 300, height: 300,),
+              child: Image.asset('assets/images/spin/Frame.png', width: spinnerSize, height: spinnerSize,),
             ),
             Align(
               alignment: Alignment.center,
-              child: Image.asset('assets/images/spin/Frame-Shadow.png', width: 300, height: 300,),
+              child: Image.asset('assets/images/spin/Frame-Shadow.png', width: spinnerSize, height: spinnerSize,),
             ),
 
           ],
@@ -132,14 +140,14 @@ class MyPainter extends CustomPainter {
     var y = cx *  sin(angle/2);
 
     // canvas.translate(cx + cx/2, cy + cy/itemSize);
-    canvas.translate(cx + 60, cy + 5 );
+    canvas.translate(cx + size.width/6.2, cy + size.width/300 );
     // canvas.rotate(angle/2);
 
     canvas.rotate(angle/2);
 
     TextSpan span = new TextSpan(
-        style: new TextStyle(color: Colors.white, fontSize: 30.0,
-            fontFamily: 'Roboto', fontWeight: FontWeight.w900, ), text: text);
+        style: new TextStyle(color: Colors.white, fontSize: size.width/10,
+            fontFamily: 'Roboto', fontWeight: FontWeight.w900), text: text);
     TextPainter tp = new TextPainter(
         text: span, textDirection: TextDirection.ltr);
     tp.layout();
