@@ -14,6 +14,9 @@ class MenuItem extends StatefulWidget {
 class _MenuItemState extends State<MenuItem> {
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
       child: Column(
         children: <Widget>[
@@ -21,12 +24,12 @@ class _MenuItemState extends State<MenuItem> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                height: 25,
-                width: 25,
+                height: width/15.68,
+                width: width/15.68,
                 decoration: BoxDecoration(color: AppColors.TEAL_LITE, shape: BoxShape.circle, border: Border.all()),
               ),
               SizedBox(width: 10,),
-              Text(widget.name, style: TextStyle(color: Colors.white, fontSize: 25),)
+              Text(widget.name, style: TextStyle(color: Colors.white, fontSize: width/15.68),)
             ],
           ),
           Divider(color: Colors.white, thickness: 2,)

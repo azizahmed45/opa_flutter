@@ -18,6 +18,8 @@ class _MediaPageState extends State<MediaPage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
@@ -59,15 +61,15 @@ class _MediaPageState extends State<MediaPage> {
                       height: 10,
                     ),
                     Container(
-                      height: 150,
-                      width: 150,
+                      height: width/2.62,
+                      width: width/2.62,
                       child: Stack(
                         children: <Widget>[
                           ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image(
-                                height: 150,
-                                width: 150,
+                                height: width/2.62,
+                                width: width/2.62,
                                 fit: BoxFit.cover,
                                 image: NetworkImage(
                                     "https://in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mkj-gamings-pubg-tournament-2020-1-13-t-16-55-2.jpg"),
@@ -95,8 +97,8 @@ class _MediaPageState extends State<MediaPage> {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image(
-                          height: 150,
-                          width: 150,
+                          height: width/2.62,
+                          width: width/2.62,
                           fit: BoxFit.cover,
                           image: NetworkImage(
                               "https://esportsobserver.com/wp-content/uploads/2019/01/PUBG-Twitch.png"),
@@ -116,8 +118,8 @@ class _MediaPageState extends State<MediaPage> {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image(
-                          height: 150,
-                          width: 150,
+                          height: width/2.62,
+                          width: width/2.62,
                           fit: BoxFit.cover,
                           image: NetworkImage(
                               "https://assets.mspimages.in/wp-content/uploads/2020/11/PUBG-Mobile-Global-Championship-2020.jpg"),
@@ -135,8 +137,8 @@ class _MediaPageState extends State<MediaPage> {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image(
-                          height: 150,
-                          width: 150,
+                          height: width/2.62,
+                          width: width/2.62,
                           fit: BoxFit.cover,
                           image: NetworkImage(
                               "https://www.xda-developers.com/files/2019/01/pubg-mobile.png"),

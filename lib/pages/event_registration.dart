@@ -19,6 +19,7 @@ class _EventRegistrationState extends State<EventRegistration> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Container(
       color: Colors.white,
       height: MediaQuery.of(context).size.height - 180,
@@ -40,7 +41,7 @@ class _EventRegistrationState extends State<EventRegistration> {
                     },
                     child: FaIcon(
                       FontAwesomeIcons.arrowLeft,
-                      size: 30,
+                      size: width/13.06,
                     ),
                   ),
                 ],
@@ -51,7 +52,7 @@ class _EventRegistrationState extends State<EventRegistration> {
             ),
             Image(
               width: MediaQuery.of(context).size.width,
-              height: 200,
+              height: width/1.96,
               fit: BoxFit.fill,
               image: NetworkImage(
                   'https://i.ytimg.com/vi/YShXBs0W8eQ/maxresdefault.jpg'),
@@ -84,76 +85,76 @@ class _EventRegistrationState extends State<EventRegistration> {
                       Text(
                         "Event Details",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: width/20, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: width/28,
                       ),
                       Text(
                         "Name",
                         style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
+                            fontSize: width/28, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "World Cup",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: width/28,
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: width/28,
                       ),
                       Text(
                         "Game",
                         style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
+                            fontSize: width/28, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "PUBG",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: width/28,
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: width/28,
                       ),
                       Text(
                         "Date & Time",
                         style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
+                            fontSize: width/28, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "17/12/2021 - 10:31pm",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: width/28,
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: width/28,
                       ),
                       Text(
                         "Platform",
                         style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
+                            fontSize: width/28, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "Facebook",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: width/28,
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: width/28,
                       ),
                       Text(
                         "Competition Rules",
                         style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
+                            fontSize: width/28, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "Lorem Ipsum is \nsimply dummy text ",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: width/28,
                         ),
                       )
                     ],
@@ -165,8 +166,8 @@ class _EventRegistrationState extends State<EventRegistration> {
                         children: <Widget>[
                           if(_subscribed)
                           Container(
-                            width: 30,
-                            height: 30,
+                            width: width/13.06,
+                            height: width/13.06,
                             decoration: BoxDecoration(color: AppColors.TEAL_LITE, borderRadius: BorderRadius.circular(5)),
                             child: Align(
                               alignment: Alignment.center,
@@ -175,7 +176,7 @@ class _EventRegistrationState extends State<EventRegistration> {
                           SizedBox(width: 10,),
                           Text(
                             "Subscribers: 5/25",
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: width/21.77),
                           ),
                         ],
                       ),
@@ -189,15 +190,15 @@ class _EventRegistrationState extends State<EventRegistration> {
                         child: Row(
                           children: <Widget>[
                             Container(
-                              width: 30,
-                              height: 30,child: Align(
+                              width: width/13.06,
+                              height: width/13.06,child: Align(
                                   alignment: Alignment.center,
-                                  child: Icon(Icons.close, size: 30, color: Colors.red,)),
+                                  child: Icon(Icons.close, size: width/13.06, color: Colors.red,)),
                             ),
                             SizedBox(width: 5,),
                             Text(
                               "Unsubscribe",
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: width/21.77),
                             ),
                           ],
                         ),
@@ -208,13 +209,13 @@ class _EventRegistrationState extends State<EventRegistration> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: width/20,
             ),
             _subscribed ?
 
             Container(
-              width: 200,
-              height: 35,
+              width: width/1.96,
+              height: width/11.2,
               decoration: BoxDecoration(
                   color: AppColors.YELlOW_DARK,
                   borderRadius: BorderRadius.circular(10)),
@@ -222,7 +223,7 @@ class _EventRegistrationState extends State<EventRegistration> {
                 alignment: Alignment.center,
                 child: Text(
                   "Starts in 7d 2h 44min",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),
+                  style: TextStyle(fontSize: width/24.5, fontWeight: FontWeight.w500, color: Colors.white),
                 ),
               ),
             ):
@@ -233,8 +234,8 @@ class _EventRegistrationState extends State<EventRegistration> {
                 });
               },
               child: Container(
-                width: 200,
-                height: 40,
+                width: width/1.96,
+                height: width/9.8,
                 decoration: BoxDecoration(
                     color: AppColors.TEAL_LITE,
                     borderRadius: BorderRadius.circular(10)),
@@ -242,7 +243,7 @@ class _EventRegistrationState extends State<EventRegistration> {
                   alignment: Alignment.center,
                   child: Text(
                     "Subscribe: 200 OJ",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: width/24.5, fontWeight: FontWeight.w500),
                   ),
                 ),
               ),

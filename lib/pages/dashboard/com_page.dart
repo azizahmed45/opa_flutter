@@ -21,6 +21,8 @@ class _ComPageState extends State<ComPage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
       height: MediaQuery.of(context).size.height - 180,
       width: MediaQuery.of(context).size.width,
@@ -33,7 +35,7 @@ class _ComPageState extends State<ComPage> {
                 itemCount: 4,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    margin: EdgeInsets.symmetric(vertical: width/35, horizontal: width/19.6),
                     child: GestureDetector(
                       onTap: (){
                         setState(() {
@@ -46,8 +48,8 @@ class _ComPageState extends State<ComPage> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image(
-                              width: 350,
-                              height: 180,
+                              width: width/1.2,
+                              height: width/2.3,
                               fit: BoxFit.fill,
                               image: NetworkImage(
                                   'https://i.ytimg.com/vi/YShXBs0W8eQ/maxresdefault.jpg'),
@@ -57,7 +59,7 @@ class _ComPageState extends State<ComPage> {
                             alignment: Alignment.bottomCenter,
                             child: Container(
                               alignment: Alignment.center,
-                              height: 30,
+                              height: width/13.06,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(
@@ -72,7 +74,7 @@ class _ComPageState extends State<ComPage> {
                                       end: Alignment.centerRight)),
                               child: Text(
                                 "REGISTRATION",
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(fontSize: width/22),
                               ),
                             ),
                           )

@@ -20,6 +20,7 @@ class _StoreItemDetailsState extends State<StoreItemDetails> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Container(
       color: Colors.white,
       height: MediaQuery.of(context).size.height - 180,
@@ -37,7 +38,7 @@ class _StoreItemDetailsState extends State<StoreItemDetails> {
                 },
                 child: FaIcon(
                   FontAwesomeIcons.arrowLeft,
-                  size: 30,
+                  size: width/13.06,
                 ),
               ),
             ),
@@ -59,10 +60,10 @@ class _StoreItemDetailsState extends State<StoreItemDetails> {
             ),
             Text(
               "PUBG",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
+              style: TextStyle(fontSize: width/15.68, fontWeight: FontWeight.w400),
             ),
             Divider(
-              thickness: 2,
+              thickness: 1.5,
               endIndent: 50,
               indent: 50,
               color: Colors.black,
@@ -101,26 +102,26 @@ class _StoreItemDetailsState extends State<StoreItemDetails> {
                     },child: FaIcon(FontAwesomeIcons.minus, size: 18,))
               ],
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: width/7.84,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Container(
-                  width: 100,
-                  height: 40,
+                  width: width/3.92,
+                  height: width/9.8,
                   decoration: BoxDecoration(color: AppColors.TEAL_LITE, borderRadius: BorderRadius.circular(10)),
                   child: Align(
                     alignment: Alignment.center,
-                    child: Text("1200 OJ", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                    child: Text("1200 OJ", style: TextStyle(fontSize: width/20, fontWeight: FontWeight.w500),),
                   ),
                 ),
                 Container(
-                  width: 100,
-                  height: 40,
+                  width: width/3.92,
+                  height: width/9.8,
                   decoration: BoxDecoration(color: AppColors.TEAL_LITE, borderRadius: BorderRadius.circular(10)),
                   child: Align(
                     alignment: Alignment.center,
-                    child: Text("7 \$", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                    child: Text("7 \$", style: TextStyle(fontSize: width/20, fontWeight: FontWeight.w500),),
                   ),
                 )
               ],
@@ -135,8 +136,8 @@ class _StoreItemDetailsState extends State<StoreItemDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("Product Description", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                  Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic", style: TextStyle(fontSize: 14,),),
+                  Text("Product Description", style: TextStyle(fontSize: width/20, fontWeight: FontWeight.bold),),
+                  Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic", style: TextStyle(fontSize: width/28,),),
                 ],
               ),
             ),
