@@ -75,20 +75,22 @@ class _ProfileState extends State<Profile> {
                         children: <Widget>[
                           FieldItem(
                             keyName: "ID",
-                            value: "685465465465",
+                            value: "123313231",
                           ),
                           FieldItem(
                             keyName: "Name",
-                            value: "Aziz Ahmed",
+                            value: "Anas Shehadeh",
+                            size: 16,
                           ),
                           FieldItem(
                             keyName: "Email",
-                            value: "aziz@gmail.com",
+                            value: "anas.sh@pesltestudio.com",
                             isBold: false,
+                            size: 12,
                           ),
                           FieldItem(
                             keyName: "Phone",
-                            value: "+8801682988355",
+                            value: "00962 79 5 177 400",
                             isBold: false,
                           ),
                           SizedBox(
@@ -252,7 +254,7 @@ class _ProfileState extends State<Profile> {
                 children: <Widget>[
                   ChoiceChip(
                     label: Text(
-                      "FIFA",
+                      "PC",
                       style: TextStyle(color: Colors.black),
                     ),
                     selected: true,
@@ -260,7 +262,7 @@ class _ProfileState extends State<Profile> {
                   ),
                   ChoiceChip(
                     label: Text(
-                      "PUBG",
+                      "TABLET",
                       style: TextStyle(color: Colors.black),
                     ),
                     selected: true,
@@ -290,8 +292,9 @@ class FieldItem extends StatelessWidget {
   final String keyName;
   final String value;
   final bool isBold;
+  final double size;
 
-  FieldItem({this.keyName, this.value, this.isBold = true});
+  FieldItem({this.keyName, this.value, this.isBold = true, this.size = 14});
 
   @override
   Widget build(BuildContext context) {
@@ -304,6 +307,7 @@ class FieldItem extends StatelessWidget {
             Text(
               value,
               style: TextStyle(
+                fontSize: size,
                   fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
             )
           ],

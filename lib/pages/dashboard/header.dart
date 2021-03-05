@@ -126,10 +126,12 @@ class Header extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(width: 10,),
+                        Container(
+                            height: width/7,
+                            width: width/7,
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            child: Image.asset("assets/images/others/launcher.png")),
                         //logo
-                        Text('O', style: TextStyle(fontSize: 20, color: AppColors.TEAL_LITE, fontWeight: FontWeight.bold),),
-                        Text('P', style: TextStyle(fontSize: 20, color: AppColors.YELlOW_LITE, fontWeight: FontWeight.bold),),
-                        Text('A', style: TextStyle(fontSize: 20, color: Colors.black,  fontWeight: FontWeight.bold),),
                         SizedBox(width: 20,),
                         Text("Aziz Ahmed", style: TextStyle(fontSize: width/26.13, color: Colors.black),)
                       ],

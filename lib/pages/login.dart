@@ -20,12 +20,14 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Text(
-                  "OPA",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 80, color: Colors.white),
-                ),
+                Image.asset("assets/images/others/logo_bw.png", height: 100, width: 100,),
+                // Text(
+                //   "OPA",
+                //   textAlign: TextAlign.center,
+                //   style: TextStyle(
+                //       fontWeight: FontWeight.bold, fontSize: 80, color: Colors.white),
+                // ),
+                SizedBox(height: 20,),
                 Text(
                   "WELCOME TO",
                   textAlign: TextAlign.center,

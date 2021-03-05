@@ -23,11 +23,11 @@ class _MenuItemState extends State<MenuItem> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                height: width/15.68,
-                width: width/15.68,
-                decoration: BoxDecoration(color: AppColors.TEAL_LITE, shape: BoxShape.circle, border: Border.all()),
-              ),
+              // Container(
+              //   height: width/15.68,
+              //   width: width/15.68,
+              //   decoration: BoxDecoration(color: AppColors.TEAL_LITE, shape: BoxShape.circle, border: Border.all()),
+              // ),
               SizedBox(width: 10,),
               Text(widget.name, style: TextStyle(color: Colors.white, fontSize: width/15.68),)
             ],

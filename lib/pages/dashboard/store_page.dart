@@ -29,7 +29,7 @@ class _StorePageState extends State<StorePage> {
           Column(
             children: <Widget>[
               Container(
-                height: 30,
+                height: 55,
                 child: Scrollbar(
                   isAlwaysShown: true,
                   child: ListView.builder(
@@ -38,7 +38,7 @@ class _StorePageState extends State<StorePage> {
                     itemCount: 10,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: EdgeInsets.symmetric(horizontal: 2),
+                        margin: EdgeInsets.symmetric(horizontal: 2,),
                         child: ChoiceChip(
                           label: Text(
                             "Fifa ${index}",
@@ -62,7 +62,7 @@ class _StorePageState extends State<StorePage> {
                 endIndent: 20,
               ),
               Container(
-                height: MediaQuery.of(context).size.height - 245,
+                height: MediaQuery.of(context).size.height - 255,
                 width: MediaQuery.of(context).size.width,
                 child: Scrollbar(
                   isAlwaysShown: true,
