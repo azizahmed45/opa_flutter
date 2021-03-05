@@ -7,7 +7,9 @@ class Spinner extends StatefulWidget {
 
   final double startAngle;
   final double endAngle;
-  Spinner({this.startAngle, this.endAngle});
+  final Function toggleShowWin;
+
+  Spinner({this.startAngle, this.endAngle, this.toggleShowWin});
 
   @override
   _SpinnerState createState() => _SpinnerState();
@@ -66,6 +68,7 @@ class _SpinnerState extends State<Spinner> {
             TweenAnimationBuilder(
               tween: Tween<double>(begin: widget.startAngle, end:  widget.endAngle),
               duration: Duration(seconds: 5),
+              onEnd: widget.toggleShowWin,
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Image.asset('assets/images/others/Spin-Pointer.png', height: spinnerSize/2.3,),

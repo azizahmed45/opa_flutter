@@ -44,6 +44,12 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin {
     });
   }
 
+  void toggleShowWin() {
+    setState(() {
+      _showWin = !_showWin;
+    });
+  }
+
   void toggleGeVip() {
     setState(() {
       _showGetVip = !_showGetVip;
@@ -93,7 +99,7 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin {
                           child: AnimatedContainer(
                             curve: Curves.easeInOutCirc,
                             duration: Duration(seconds: 5),
-                              child: Spinner(startAngle: startAngle, endAngle: endAngle,))
+                              child: Spinner(startAngle: startAngle, endAngle: endAngle, toggleShowWin: toggleShowWin,))
                           // AnimatedBuilder(
                           //   animation: _animationController,
                           //   child: Spinner(),
@@ -269,7 +275,7 @@ class _SpinTabState extends State<SpinTab> with SingleTickerProviderStateMixin {
           ),
           if (_showGetVip) GetVip(toggleGeVip),
           if (_showGetSpin) GetSpin(toggleGetSpin),
-          if (_showWin) SpinWin(wonPinnt.toString()),
+          if (_showWin) SpinWin(wonPinnt.toString(), toggleShowWin),
         ],
       ),
     );
